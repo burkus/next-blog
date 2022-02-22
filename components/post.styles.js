@@ -50,5 +50,6 @@ export const Title = styled.h1`
     overflow: hidden;
     @media only screen and (max-width: ${small}) {
         margin-left: 10px;
+        margin-right: 10px;
     }
 `;
