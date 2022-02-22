@@ -10,8 +10,14 @@ const Button = styled.button`
     margin: 10px;
     margin-left: 80px;
     border: none;
+    transition: all 300ms linear;
+    
     @media only screen and (max-width: 768px){
         margin-left: 10px;
+    }
+
+    &:hover {
+        transform: scale(1.3);
     }
 `;
 

@@ -5,6 +5,7 @@ export const PostWrapper = styled.div`
     color: ${props => props.theme.main};
     background-color: ${props => props.theme.background};
     transition: all 300ms linear;
+    width: 100%;
 
     h1,h2,h3,h4,h5,h6 {
         margin: 10px;
