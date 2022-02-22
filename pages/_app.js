@@ -9,6 +9,7 @@ import DarkModeSwitch from '@components/DarkModeSwitch';
 import LightTheme from '@components/light-theme.style';
 import { DarkCode } from '@components/dark-code.style';
 import { LightCode } from '@components/light-code.style';
+import App from 'next/app';
 
 function MyApp({ Component, pageProps }) {
   const canvasRef = React.useRef(null);
@@ -65,5 +66,11 @@ function MyApp({ Component, pageProps }) {
     </Root>
   );
 }
+
+MyApp.getInitialProps = async (appContext) => {
+    const appProps = await App.getInitialProps(appContext);
+  
+    return { ...appProps }
+  }
 
 export default MyApp

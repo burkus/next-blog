@@ -6,15 +6,16 @@ import matter from 'gray-matter';
 import { PostWrapper, Title } from '@components/post.styles';
 import remarkGfm from 'remark-gfm';
 import remarkPrism from 'remark-prism';
-import Link from 'next/link';
 
-export default function BlogPost({ post, frontMatter }) {
+export default function BlogPost({ post = null, frontMatter = { Title: 'default' } }) {
     return (
         <div>
             <Title>{frontMatter.Title}</Title>
-            <PostWrapper>
-                <MDXRemote {...post}></MDXRemote>
-            </PostWrapper>
+            {
+                post && <PostWrapper>
+                    <MDXRemote {...post}></MDXRemote>
+                </PostWrapper>
+            }
         </div>
     );
 }
