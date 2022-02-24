@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }) {
     const ctx = canvasRef.current.getContext('2d');
     const sine = new Sine();
     const width = window.innerWidth;
-    console.log(ctx)
     canvasRef.current.width = width;
     canvasRef.current.backgroundColor = 'black'
     const draw = () => {
