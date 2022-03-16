@@ -1,20 +1,24 @@
 import { getBlogFiles, getBlogFile } from '@lib/blog';
+import { Title, Subtitle, Root, PostLink } from '@components/home.styles';
 import matter from 'gray-matter';
 import Link from 'next/link';
 
 export default function Home({ posts }) {
   return (
     <div>
-      <h1>Hallo</h1>
-      <h3>This is a blgo</h3>
-      {
-        posts.map(post => (<h2>
-          <Link href={`/posts/${post.fileName}`}>
-            {post.title}
-          </Link>
-        </h2>))
-      }
+      <Title>This is a blog</Title>
+      <Root>
+        <Subtitle>These are its posts</Subtitle>
+        {
+          posts.map((post, index) => (<PostLink key={index}>
+            <Link href={`/posts/${post.fileName}`}>
+              {post.title}
+            </Link>
+          </PostLink>))
+        }
+    </Root>
     </div>
+    
   );
 }
 
