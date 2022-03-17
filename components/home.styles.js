@@ -13,7 +13,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.h2`
     color: ${props => props.theme.main};
     background-color: ${props => props.theme.background};
-    margin-left: 85px;
+    margin-left: 85px !important;
     @media only screen and (max-width: ${small}) {
         margin-left: 11px;
         margin-right: 11px;
@@ -33,7 +33,7 @@ export const Root = styled.div`
     }
 
     li, ul {     
-        margin-left: 80px;
+        margin-left: 100px;
         @media only screen and (max-width: ${small}) {
             margin-left: 20px;
         }

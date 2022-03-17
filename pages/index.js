@@ -8,7 +8,7 @@ export default function Home({ posts }) {
     <div>
       <Title>This is a blog</Title>
       <Root>
-        <Subtitle>These are its posts</Subtitle>
+        <Subtitle>These are its posts:</Subtitle>
         {
           posts.map((post, index) => (<PostLink key={index}>
             <Link href={`/posts/${post.fileName}`}>
