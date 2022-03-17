@@ -2,6 +2,7 @@ import styled from 'styled-components';
 const small = '768px';
 
 export const PostWrapper = styled.div`
+    min-height: 100vh;
     color: ${props => props.theme.main};
     background-color: ${props => props.theme.background};
     transition: all 300ms linear;

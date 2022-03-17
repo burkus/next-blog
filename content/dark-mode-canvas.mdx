@@ -1,0 +1,61 @@
+---
+Title: How to Dark Mode a Canvas
+Date: 2022-15-03 10:41
+Category: Tutorial
+---
+
+Dark mode is kind of like how the Romans would grow grass just to flex that they could. Growing something totally worthless 
+is the ultimate flex, and so are app features that add large amounts of complexity with virtually no return on investment.
+
+I like building animations/simulations with the canvas element, but what can be frustrating is working with the canvas when in React.
+Because the `requestAnimationFrame` function is executed under the global context
+you end up with funky behavior that doesn't really fit into the React ethos. 
+My rendering functions have to execute outside of React land for performance and browser API reasons. React is awesome but when
+you want 30-60fps it's just so much easier to mutate state.
+
+I tried putting in additional state hooks to handle dark mode canvas but this doesn't work because state updates are based upon
+reference. When the hook's value is updated, the original reference (which is captured by the closure) becomes worthless.
+We can't update that reference unless we make a new closure, which we can't.
+
+```javascript
+const draw = () => {
+    sine.draw(ctx);
+    requestAnimationFrame(() => draw(sine.draw(ctx)));
+}
+
+draw();
+```
+
+I ran into the same issue with window resizes. My solution to both of these problems was the same: refs and effect hooks.
+This lead me to using the DOM as my mutable state. The canvas API will always have access to whichever canvas spawned the context.
+
+This is great because it lets you play in javascript land with the canvas without having to do anything too hacky.
+
+Accessing color using the context:
+
+```javascript
+const color = ctx.canvas.backgroundColor;
+```
+
+I added the following hook in the root of the app, where the dark mode switch resides.
+
+```javascript
+React.useEffect(() => {
+    if(canvasRef.current) {
+        canvasRef.current.backgroundColor = theme === 'dark' ? 'black' : 'white';
+    }
+}, [theme])
+```
+Whenever the dark mode switch is toggled, this will manually update the canvas element.
+This is very simple but I had so much trouble finding something that worked I figured it was worth sharing.
+
+and resizing looks like this:
+
+```javascript
+const resize = () => {
+    canvasRef.current.width = window.innerWidth;
+}
+
+window.onresize = resize;
+```
+In both cases modifying the element itself is a quick, clean way to toggle color in your canvas animations.

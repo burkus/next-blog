@@ -17,8 +17,7 @@ export default function Home({ posts }) {
           </PostLink>))
         }
     </Root>
-    </div>
-    
+  </div>
   );
 }
 
