@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;800&family=Roboto:ital,wght@0,700;1,700&family=Work+Sans&display=swap");
-@tailwind base; 
-@tailwind components; 
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
 html,
@@ -12,9 +12,15 @@ body {
   padding: 0;
   min-width: 100%;
   min-height: 100vh;
+  scrollbar-width: 0;
+
   @media only screen and (max-width: 768px) {
     min-width: 100%;
   }
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {
@@ -27,5 +33,3 @@ a {
   padding: 0;
   box-sizing: border-box;
 }
-
-

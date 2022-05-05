@@ -8,7 +8,6 @@ const Button = styled.button`
     width: 32px;
     height: 32px;
     margin: 10px;
-    margin-left: 80px;
     border: none;
     transition: all 300ms linear;
     

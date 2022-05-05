@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { useEffect, useState } from 'react';
-import { Canvas, Root, HomeLink } from '@components/app.style';
+import { Root, HomeLink } from '@components/app.style';
 import Link from 'next/link';
 import { ThemeProvider } from 'styled-components';
 import DarkTheme from '@components/dark-theme.style';

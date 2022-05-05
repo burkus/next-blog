@@ -6,14 +6,17 @@ export const Root = styled.div`
     color: ${props => props.theme.main};
     background-color: ${props => props.theme.background};
     min-height: 100vh;
+    padding: 0 7em;
+    @media only screen and (max-width: ${small}) {
+        padding: 0 0.3em;
+    }
 `;
 
 export const HomeLink = styled.h1`
     color: ${props => props.theme.main};
-    margin-left: 80px;
     transition: all 300ms linear;
     transform-origin: left;
-    max-width: 100px;
+    max-width: fit-content;
     overflow: hidden;
     cursor: pointer;
     @media only screen and (max-width: ${small}) {

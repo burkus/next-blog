@@ -1,6 +1,5 @@
 import { getBlogFiles, getBlogFile } from '@lib/blog';
-import { Title, Subtitle, PostLink, PostsWrapper} from '@components/home.styles';
-import { Root } from 'components/app.style'
+import { Title, Subtitle, PostLink, PostsWrapper, Root } from '@components/home.styles';
 import matter from 'gray-matter';
 import Link from 'next/link';
 
@@ -8,16 +7,16 @@ export default function Home({ posts }) {
   return (
     <Root>
       <Title className='text-2xl'>This is a blog</Title>
-        <Subtitle className='text-xl'>These are its posts:</Subtitle>
-        <PostsWrapper className='text-xl'>
+      <Subtitle className='text-xl'>These are its posts:</Subtitle>
+      <PostsWrapper className='text-xl flex flex-col gap-4'>
         {
           posts.map((post, index) => (<PostLink key={index}>
-            <Link  href={`/posts/${post.fileName}`}>
+            <Link href={`/posts/${post.fileName}`}>
               {post.title}
             </Link>
           </PostLink>))
         }
-        </PostsWrapper>
+      </PostsWrapper>
     </Root>
   );
 }
@@ -33,7 +32,7 @@ export async function getStaticProps() {
       fileName
     });
   })
-  
+
   return {
     props: {
       posts
