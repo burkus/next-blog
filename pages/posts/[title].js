@@ -9,8 +9,8 @@ import remarkPrism from 'remark-prism';
 
 export default function BlogPost({ post = null, frontMatter = { Title: 'default' } }) {
     return (
-        <Root className='mt-16'>
-            <Title className='text-2xl'>{frontMatter.Title}</Title>
+        <Root className=''>
+            <Title className='text-3xl'>{frontMatter.Title}</Title>
             {
                 post && <PostWrapper>
                     <MDXRemote {...post}></MDXRemote>
