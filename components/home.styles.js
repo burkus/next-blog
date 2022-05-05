@@ -2,6 +2,7 @@ import styled from "styled-components";
 const small = '768px';
 
 export const Title = styled.h1`
+    background: none;
     color: ${props => props.theme.main};
     margin-left: 80px;
     @media only screen and (max-width: ${small}) {
@@ -20,8 +21,7 @@ export const Subtitle = styled.h2`
     }
 `;
 
-export const Root = styled.div`
-    min-height: 100vh;
+export const PostsWrapper = styled.div`
     color: ${props => props.theme.main};
     background-color: ${props => props.theme.background};
     h1,h2,h3,h4,h5,h6 {

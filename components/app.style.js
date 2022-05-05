@@ -1,16 +1,11 @@
 import styled from "styled-components";
 const small = "768px";
 
-export const Canvas = styled.canvas`
-    position: absolute;
-    z-index: -1;
-    background-color: ${props => props.theme.background};
-`;
-
 export const Root = styled.div`
     transition: all 300ms linear;
     color: ${props => props.theme.main};
     background-color: ${props => props.theme.background};
+    min-height: 100vh;
 `;
 
 export const HomeLink = styled.h1`

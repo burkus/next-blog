@@ -3,20 +3,20 @@ import { getBlogFiles, getBlogFile } from '@lib/blog';
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import matter from 'gray-matter';
-import { PostWrapper, Title } from '@components/post.styles';
+import { PostWrapper, Title, Root } from '@components/post.styles';
 import remarkGfm from 'remark-gfm';
 import remarkPrism from 'remark-prism';
 
 export default function BlogPost({ post = null, frontMatter = { Title: 'default' } }) {
     return (
-        <div>
-            <Title>{frontMatter.Title}</Title>
+        <Root className='mt-16'>
+            <Title className='text-2xl'>{frontMatter.Title}</Title>
             {
                 post && <PostWrapper>
                     <MDXRemote {...post}></MDXRemote>
                 </PostWrapper>
             }
-        </div>
+        </Root>
     );
 }
 

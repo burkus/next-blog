@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;800&family=Roboto:ital,wght@0,700;1,700&family=Work+Sans&display=swap");
+@tailwind base; 
+@tailwind components; 
+@tailwind utilities;
+
 html,
 body {
-  /* font-family: 'Roboto', sans-serif; */
   font-family: 'Roboto Slab', serif;
-  /* font-family: 'Work Sans', sans-serif; */
   overflow-y: scroll;
   word-break: break-word;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100vh;
   @media only screen and (max-width: 768px) {
     min-width: 100%;
   }
@@ -21,3 +27,5 @@ a {
   padding: 0;
   box-sizing: border-box;
 }
+
+
