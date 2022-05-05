@@ -13,7 +13,6 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.h2`
     color: ${props => props.theme.main};
-    background-color: ${props => props.theme.background};
     margin-left: 85px !important;
     @media only screen and (max-width: ${small}) {
         margin-left: 11px;
@@ -23,7 +22,6 @@ export const Subtitle = styled.h2`
 
 export const PostsWrapper = styled.div`
     color: ${props => props.theme.main};
-    background-color: ${props => props.theme.background};
     h1,h2,h3,h4,h5,h6 {
         margin: 10px;
         margin-left: 120px;
