@@ -1,24 +1,33 @@
 import { useEffect, useState, useRef } from "react"
-export default ({  }) => {
+import tw, { styled } from 'twin.macro'
+
+const SvgWrapper = styled.svg(({ theme }) => [
+    `
+        fill: currentColor;
+    `,
+    tw`w-full`
+])
+
+const Sine = ({ }) => {
     const [points, setPoints] = useState([])
     const svgRef = useRef(null)
     const interval = useRef(0)
     const theta = useRef(0)
     const xSpacing = 16
     const period = 50
-    const amplitude = 30
     const dx = ((Math.PI * 2) / period) * xSpacing;
 
     useEffect(() => {
-        console.log(svgRef)
         const sine = () => {
             const points = []
+            const width = svgRef.current.width.baseVal.value
+            const height = svgRef.current.height.baseVal.value
             let x = theta.current
             theta.current = theta.current + 0.02
-            for(let i = 0; i < svgRef.current.width.baseVal.value / xSpacing; i++) {
-                const y = amplitude * Math.sin(x)
+            for (let i = 0; i < width / xSpacing; i++) {
+                const y = height * Math.sin(x) + height / 2
                 points.push({
-                    x: i * xSpacing,
+                    x: i * xSpacing + xSpacing,
                     y
                 })
                 x += dx
@@ -26,14 +35,14 @@ export default ({  }) => {
             setPoints(points)
             interval.current = window.requestAnimationFrame(sine)
         }
-        
+
         interval.current = window.requestAnimationFrame(sine)
 
         return () => window.cancelAnimationFrame(interval.current)
     }, [svgRef])
 
     return (
-        <svg ref={svgRef} width={'100%'} height={140}>
+        <SvgWrapper ref={svgRef} height={100}>
             {
                 points.map(point => (
                     <circle
@@ -41,10 +50,11 @@ export default ({  }) => {
                         cx={point.x}
                         cy={point.y}
                         r={7}
-                        fill={'black'}
                     />
                 ))
             }
-        </svg>
+        </SvgWrapper>
     )
 }
+
+export default Sine

@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Root, HomeLink } from '@components/app.style';
 import Link from 'next/link';
 import { ThemeProvider } from 'styled-components';
@@ -27,10 +27,15 @@ function MyApp({ Component, pageProps }) {
       {theme === 'dark' ? <DarkCode /> : <LightCode />}
       <ThemeProvider theme={theme === 'dark' ? DarkTheme : LightTheme}>
         <Root>
-          <Link href="/" passHref>
-            <HomeLink className='text-3xl pt-2'>Home</HomeLink>
-          </Link>
-          <DarkModeSwitch handler={handleDarkModeSwitch} />
+          <div className='flex items-start'>
+            <div className=''>
+              <Link href="/" passHref>
+                <HomeLink className='text-3xl'>Home</HomeLink>
+              </Link>
+              <DarkModeSwitch handler={handleDarkModeSwitch} />
+            </div>
+            <Sine />
+          </div>
           <Component {...pageProps} />
         </Root>
       </ThemeProvider>

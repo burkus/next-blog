@@ -6,9 +6,9 @@ import Link from 'next/link';
 export default function Home({ posts }) {
   return (
     <Root>
-      <Title className='text-2xl'>This is a blog</Title>
-      <Subtitle className='text-xl'>These are its posts:</Subtitle>
-      <PostsWrapper className='text-xl flex flex-col gap-4'>
+      <Title>This is a blog</Title>
+      <Subtitle>These are its posts:</Subtitle>
+      <PostsWrapper>
         {
           posts.map((post, index) => (<PostLink key={index}>
             <Link href={`/posts/${post.fileName}`}>

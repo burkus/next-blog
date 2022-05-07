@@ -17,6 +17,8 @@ export const HomeLink = styled.h1`
     transition: all 300ms linear;
     transform-origin: left;
     max-width: fit-content;
+    min-width: fit-content;
+    white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
     @media only screen and (max-width: ${small}) {
